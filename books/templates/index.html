@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <ul>
+        {% for item in result %}
+            <li>
+                <p>Nazev: {{ item.title }}</p>
+                <p>pocet stranek: {{ item.pages }}</p>
+                <p>
+                    bestseller {{ item.is_bestseller }}
+                    {% if item.is_bestseller == True %}
+                        pravda
+                    {% else %}
+                        nepravda
+                    {% endif %}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

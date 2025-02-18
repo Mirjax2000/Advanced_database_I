@@ -24,4 +24,5 @@ handler404 = "books.views.custom_404"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", views.index, name="index"),
 ]
