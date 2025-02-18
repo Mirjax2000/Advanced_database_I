@@ -1,3 +1,4 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -12,8 +13,17 @@ class Book(models.Model):
         blank=False,
         unique=True,
     )
+    description = models.TextField(
+        null=False, blank=True, verbose_name="Popis knihy"
+    )
     pages = models.IntegerField(
-        verbose_name="Pocet stranek", null=False, blank=False
+        verbose_name="Pocet stranek",
+        null=False,
+        blank=False,
+        validators=[MinValueValidator(10), MaxValueValidator(1000)],
+    )
+    is_bestseller = models.BooleanField(
+        default=False, verbose_name="Je to bestseller?: "
     )
     created = models.DateTimeField(
         auto_now_add=True,
@@ -24,8 +34,13 @@ class Book(models.Model):
         verbose_name="update zaznamu",
     )
 
-    def __str__(self):
+    class Meta:
+        """Meta funkce na ordering"""
+
+        ordering = ["title"]
+
+    def __str__(self) -> str:
         return f"{self.title}"
 
-    def __repr__(self):
-        return f"Book(title='{self.title}', pages={self.pages})"
+    def __repr__(self) -> str:
+        return f"Book(ID={self.pk},title='{self.title}', pages={self.pages}, Bestseller={self.is_bestseller})"

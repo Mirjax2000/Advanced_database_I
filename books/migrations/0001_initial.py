@@ -4,10 +4,9 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = []
+    dependencies: list = []
 
     operations = [
         migrations.CreateModel(
@@ -31,11 +30,15 @@ class Migration(migrations.Migration):
                 ("pages", models.IntegerField(verbose_name="Pocet stranek")),
                 (
                     "created",
-                    models.DateTimeField(auto_now_add=True, verbose_name="vytvoreno"),
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="vytvoreno"
+                    ),
                 ),
                 (
                     "updated",
-                    models.DateTimeField(auto_now=True, verbose_name="update zaznamu"),
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="update zaznamu"
+                    ),
                 ),
             ],
         ),
