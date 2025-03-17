@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-    <h2>Přidat novou knihu</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_table }}
-        <button type="submit">Uložit  ddd</button>
-    </form>
-{% endblock content %}

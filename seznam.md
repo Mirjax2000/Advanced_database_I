@@ -45,6 +45,16 @@ def custom_404(request, exception):
     html = render_to_string("404.html", {"message": str(exception)})
     return HttpResponseNotFound(html)
 ```
+tento kod do url.py
+```python
+from moje_aplikace.views import custom_404
+  # Importuj funkce z views
+
+handler400 = "moje_aplikace.views.custom_400"
+handler403 = "moje_aplikace.views.custom_403"
+handler404 = "moje_aplikace.views.custom_404"
+handler500 = "moje_aplikace.views.custom_500"
+```
 
 
 ## dulezite pro vytvareni modelu
