@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Nazev knihy:{{ book.title }}</h2>
+    <p>pocet stranek:{{ book.pages }}</p>
+    <p>
+        {% with val=book.is_bestseller %}
+            {% if val == True %}
+                Je to Bestseller
+            {% else %}
+                je to Brak
+            {% endif %}
+        {% endwith %}
+    </p>
+{% endblock content %}

@@ -1,19 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <ul>
-        {% for item in result %}
-            <li>
-                <p>Nazev: {{ item.title }}</p>
-                <p>pocet stranek: {{ item.pages }}</p>
-                <p>
-                    bestseller {{ item.is_bestseller }}
-                    {% if item.is_bestseller == True %}
-                        pravda
-                    {% else %}
-                        nepravda
-                    {% endif %}
-                </p>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Home Page</h1>
+    <p>Vitej nam hrdino: {{ hero }}</p>
+    <hr>
+    <a href="{% url "book_list" %}">Book List</a>
+    <br>
+    <a href="{% url "book_create" %}">Create book</a>
+    <br>
+    <hr>
+    <br>
+    <a href="{% url "form_view" %}">Formular</a>
 {% endblock content %}
